@@ -1,0 +1,6 @@
+﻿  asynchoronousUsingWaitableTimer.cpp
+d:\leisuregit\windows\synchronization\asynchoronoususingwaitabletimer\asynchoronoususingwaitabletimer.cpp(146): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type '__int64'
+  d:\leisuregit\windows\synchronization\asynchoronoususingwaitabletimer\asynchoronoususingwaitabletimer.cpp(146): note: consider using '%lld' in the format string
+  d:\leisuregit\windows\synchronization\asynchoronoususingwaitabletimer\asynchoronoususingwaitabletimer.cpp(146): note: consider using '%I64d' in the format string
+  asynchoronousUsingWaitableTimer.vcxproj -> D:\leisureGit\windows\Synchronization\Debug\asynchoronousUsingWaitableTimer.exe
+  asynchoronousUsingWaitableTimer.vcxproj -> D:\leisureGit\windows\Synchronization\Debug\asynchoronousUsingWaitableTimer.pdb (Full PDB)

@@ -1,0 +1,38 @@
+ Volume in drive D has no label.
+ Volume Serial Number is E807-8E0B
+
+ Directory of D:\leisureGit\windows\Synchronization\UsingSemaphore
+
+2018/12/07  13:43    <DIR>          .
+2018/12/07  13:43    <DIR>          ..
+2018/12/07  13:43                 0 1.txt
+2018/12/07  13:43    <DIR>          Debug
+2018/12/07  13:43                27 dirr.bat
+2018/12/07  13:07             1,764 ReadMe.txt
+2018/12/07  13:07               301 stdafx.cpp
+2018/12/07  13:07               320 stdafx.h
+2018/12/07  13:07               314 targetver.h
+2018/12/07  13:43             3,357 UsingSemaphore.cpp
+2018/12/07  13:07             7,478 UsingSemaphore.vcxproj
+2018/12/07  13:07             1,341 UsingSemaphore.vcxproj.filters
+               9 File(s)         14,902 bytes
+               3 Dir(s)  155,813,756,928 bytes free
+ Volume in drive D has no label.
+ Volume Serial Number is E807-8E0B
+
+ Directory of D:\leisureGit\windows\Synchronization\UsingSemaphore
+
+2018/12/07  13:43    <DIR>          .
+2018/12/07  13:43    <DIR>          ..
+2018/12/07  13:43               828 1.txt
+2018/12/07  13:43    <DIR>          Debug
+2018/12/07  13:43                27 dirr.bat
+2018/12/07  13:07             1,764 ReadMe.txt
+2018/12/07  13:07               301 stdafx.cpp
+2018/12/07  13:07               320 stdafx.h
+2018/12/07  13:07               314 targetver.h
+2018/12/07  13:43             3,357 UsingSemaphore.cpp
+2018/12/07  13:07             7,478 UsingSemaphore.vcxproj
+2018/12/07  13:07             1,341 UsingSemaphore.vcxproj.filters
+               9 File(s)         15,730 bytes
+               3 Dir(s)  155,813,756,928 bytes free

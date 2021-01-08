@@ -1,0 +1,59 @@
+A multitasking operation system divides the available processor time among the processes or threads that need it . The system is designed for preemptive multitaksing; it allocates a processor time slice to each thread it executes. The currently executing thread is suspended when its time slice elapses, allowing another thread to run. When the system switches from one thread to another, it saves the context of the preempted thread and restores the saved context of the next thread in the queue.
+
+The length of the time slice depends on the operating system and the processor. Because each time slice is small(approximately 20 milliseconds), multiple threads appear to be executing at the same time. This is actually the case on multiprocessor system. where the executable threads are distributed among the available processors. However you must use caution when using multiple threads in an application, because system performance can decrease if there are too many threads.
+
+
+Advantages of Multitasking
+
+To the user, the advantage of multitasking is the ability to have several
+applications open and working at the same time. For example,
+a user can edit a file with one application while another application
+is recalculating a spreadsheet.
+
+To the application developer, the advantage of multitasking is the ability to create applications that use more than one process and to create processes that use more than one thread of execution. For example, process can have a user interface thread that manages interactions with the user (keyboard and mouse input), and worker threads that perform other tasks while the user interface thread waits for user input . If you give the user interface thread a higher priority,
+the application will be more responsive to the user, while the worker threads use the processor efficiently during the time when there is no user input.
+
+When to Use Multitasking
+
+There are two ways to implement multitasking: as a single process with multiple threads or as multiple processes,each with one or more threads.
+An application can put each thread that requires a private address space and private resources into its own process, to protect it from the activities of other process threads.
+
+A multithreaded process can manage mutually exclusive tasks with threads, such as providing a user interface and performing background calculations. Creating a multithreaded process can also be a convenient way to structure a program that performs several similiar or identical tasks concurrently. For example, a named pipe server can create a thread for each client process that attaches to the pipe. This thread manages the communication between the server and the client.Your process could use multiple threads to accomplish the following tasks;
+
+
+- Manage input for multiple windows.
+- Manage input from several communications devices.
+- Distinguish tasks of varying priority.For example, a high-priority thread manages time-critical tasks,and a low -priority thread performs other tasks. 
+- Allow the user interface to remain responsive, while allocating time to background tasks.
+
+It is typically more efficient for an application to implement multitasking by creating a single , multithreaded process, rather than creating multiple processes, for the following reasons:
+
+- The system can perform a context switch more quickly for threads than processes,because an process has more overhead than a thread does(the process context is larger than the thread context).
+
+- All threads of a process share the same address space and can access the process's global variables, which can simplify communication between threads.
+
+- All threads of a process can share open handles to resources to resources, such as files and pipes.
+
+There are other techniques you can use in the place of multithreading.
+The most significant of these are as follows: asynchronous input and output (I/O), I/O completion ports, asynchronous procedure calls (APC), and the ability to wait for multiple events.
+
+A single thread can initiate multiple time-consuming I/O requests that can run concurrently using asynchronous I/O . Asynchronous I/O can be performed on files, pipes , and serial communication devices. For more information,see Synchronization and Overlapped Input and Output.
+
+A single thread can block its own execution while waiting for any one or all of several events to occur. This is more efficient than using multiple threads , each waiting for a single event,and more efficient than using a single thread that consumes processor time by continually checking for events to occur. For more information. See Wait Functions.
+
+
+
+Multitasking Considerations
+
+The recommended guideline is to use as few threads as possible ,thereby
+minimizing the use of system resources. This improves performance. Multitasking has resource requirements and potential conflicts to be considered when designing your application. The resource requirements 
+are as follows:
+
+- The system consumes memory for the context information required by both processes and threads. Therefore,the number of processes and threads that can be created is limited by available memory.
+
+- Keeping track of a large number of threads consumes significant processor time. If there are too many threads, most of them will not be able to make significant progress. If most of the current threads are in one process, threads in other processes are scheduled less frequently.
+
+Providing shared access to resources can create conflicts. To avoid them, you must synchronize access to shared resources. This is true for system resources (such as communications ports), resources shared by multiple processses(such as file handles), or the resources of a single process (such as global variables)
+accessed by multiple threads. Failure to synchronize access properly (in the same or different processes) can lead to problems such as deadlock and race conditions. The synchronization objects and functions you can use to coordinate resource sharing among multiple threads. For more information about synchronization, see . Reducing the number of threads makes it easier and more effective to synchronize resources.
+
+A good design for a multithreaded application is the pipeline server. In this design, you create one thread per processor and build queues of requests for which the application maintains the context information. A thread would process all requests in a queue before processing requests in the next queue.
